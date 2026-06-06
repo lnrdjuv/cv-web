@@ -11,76 +11,84 @@ const icons = {
 
 export default function CVTemplate({ data }: { data: CVData }) {
   return (
-    <div className="paper-wrap">
+    <div className="page-wrap">
       <div className="paper">
-        {/* ===== SIDEBAR / HEADER ===== */}
-        <aside className="sidebar">
-          <div className="sb-section">
-            <div className="sb-title">Contato</div>
-            <div className="sb-contacts-grid">
-              <div className="sb-contact">{icons.location}<span>{data.personal.address}</span></div>
-              <div className="sb-contact">{icons.phone}<span>{data.personal.phone}</span></div>
-              <div className="sb-contact">{icons.email}<span>{data.personal.email}</span></div>
-              <div className="sb-contact">{icons.linkedin}<span>{data.personal.linkedin}</span></div>
-              <div className="sb-contact">{icons.license}<span>CNH {data.personal.cnh} · CREA {data.personal.crea}</span></div>
-              <div className="sb-contact">{icons.calendar}<span>{data.personal.availability}</span></div>
-            </div>
+        {/* Header / Sidebar */}
+        <header className="cv-header">
+          <h1 className="cv-name">{data.personal.name}</h1>
+          <p className="cv-role">{data.personal.title}</p>
+
+          <div className="contact-grid">
+            <div className="contact-item">{icons.location}<span>{data.personal.address}</span></div>
+            <div className="contact-item">{icons.phone}<span>{data.personal.phone}</span></div>
+            <div className="contact-item">{icons.email}<span>{data.personal.email}</span></div>
+            <div className="contact-item">{icons.linkedin}<span>{data.personal.linkedin}</span></div>
+            <div className="contact-item">{icons.license}<span>CNH {data.personal.cnh} · CREA {data.personal.crea}</span></div>
+            <div className="contact-item">{icons.calendar}<span>{data.personal.availability}</span></div>
           </div>
 
-          <div className="sb-section">
-            <div className="sb-title">Formação</div>
-            <div className="sb-edu-grid">
+          {/* Education — in sidebar on desktop, inside body on mobile */}
+          <div className="cv-section" style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+            <h2 className="cv-section-title">Formação</h2>
+            <div className="cv-edu-list">
               {data.education.map((edu, i) => (
-                <div key={i} className="sb-edu">{edu.degree}</div>
+                <div key={i} className="cv-edu-item" style={{ color: 'rgba(255,255,255,0.85)', borderLeftColor: 'rgba(255,255,255,0.3)' }}>
+                  {edu.degree}
+                </div>
               ))}
             </div>
           </div>
 
+          {/* Systems */}
           {data.systems && data.systems.length > 0 && (
-            <div className="sb-section">
-              <div className="sb-title">Sistemas</div>
-              <div>
+            <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+              <h2 className="cv-section-title">Sistemas</h2>
+              <div className="cv-tags">
                 {data.systems.map((s) => (
-                  <span key={s} className="sb-skill">{s}</span>
+                  <span key={s} className="cv-tag" style={{ background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.8)' }}>
+                    {s}
+                  </span>
                 ))}
               </div>
             </div>
           )}
-        </aside>
+        </header>
 
-        {/* ===== MAIN ===== */}
-        <main className="main">
-          <h1 className="main-name">{data.personal.name}</h1>
-          <p className="main-role">{data.personal.title}</p>
-          <div className="main-divider" />
+        {/* Main Content */}
+        <main className="cv-body">
+          <section className="cv-section">
+            <h2 className="cv-section-title">Objetivo Profissional</h2>
+            <div className="cv-summary">
+              <p>{data.objective}</p>
+            </div>
+          </section>
 
-          <div className="section">
-            <h2 className="section-title">Objetivo Profissional</h2>
-            <p className="summary-p">{data.objective}</p>
-          </div>
+          <section className="cv-section">
+            <h2 className="cv-section-title">Resumo Profissional</h2>
+            <div className="cv-summary">
+              {data.summary.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </section>
 
-          <div className="section">
-            <h2 className="section-title">Resumo Profissional</h2>
-            {data.summary.map((p, i) => (
-              <p key={i} className="summary-p">{p}</p>
-            ))}
-          </div>
-
-          <div className="section">
-            <h2 className="section-title">Experiência Profissional</h2>
+          <section className="cv-section">
+            <h2 className="cv-section-title">Experiência Profissional</h2>
             {data.experience.map((exp, i) => (
-              <div key={i} className="exp">
-                <div className="exp-head">
-                  <span className="exp-company">{exp.company}</span>
-                  <span className="exp-period">{exp.period}</span>
+              <div key={i} className="cv-exp">
+                <div className="cv-exp-top">
+                  <span className="cv-exp-company">{exp.company}</span>
+                  <span className="cv-exp-period">{exp.period}</span>
                 </div>
-                <div className="exp-role">{exp.role}</div>
-                {exp.bullets.map((b, j) => (
-                  <div key={j} className="exp-bullet">{b}</div>
-                ))}
+                <div className="cv-exp-role">{exp.role}</div>
+                <ul className="cv-exp-bullets">
+                  {exp.bullets.map((b, j) => (
+                    <li key={j}>{b}</li>
+                  ))}
+                </ul>
               </div>
             ))}
-          </div>
+          </section>
         </main>
       </div>
     </div>
