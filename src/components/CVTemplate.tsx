@@ -13,23 +13,27 @@ export default function CVTemplate({ data }: { data: CVData }) {
   return (
     <div className="paper-wrap">
       <div className="paper">
-        {/* ===== SIDEBAR ===== */}
+        {/* ===== SIDEBAR / HEADER ===== */}
         <aside className="sidebar">
           <div className="sb-section">
             <div className="sb-title">Contato</div>
-            <div className="sb-contact">{icons.location}<span>{data.personal.address}</span></div>
-            <div className="sb-contact">{icons.phone}<span>{data.personal.phone}</span></div>
-            <div className="sb-contact">{icons.email}<span>{data.personal.email}</span></div>
-            <div className="sb-contact">{icons.linkedin}<span>{data.personal.linkedin}</span></div>
-            <div className="sb-contact">{icons.license}<span>CNH {data.personal.cnh} · CREA {data.personal.crea}</span></div>
-            <div className="sb-contact">{icons.calendar}<span>{data.personal.availability}</span></div>
+            <div className="sb-contacts-grid">
+              <div className="sb-contact">{icons.location}<span>{data.personal.address}</span></div>
+              <div className="sb-contact">{icons.phone}<span>{data.personal.phone}</span></div>
+              <div className="sb-contact">{icons.email}<span>{data.personal.email}</span></div>
+              <div className="sb-contact">{icons.linkedin}<span>{data.personal.linkedin}</span></div>
+              <div className="sb-contact">{icons.license}<span>CNH {data.personal.cnh} · CREA {data.personal.crea}</span></div>
+              <div className="sb-contact">{icons.calendar}<span>{data.personal.availability}</span></div>
+            </div>
           </div>
 
           <div className="sb-section">
             <div className="sb-title">Formação</div>
-            {data.education.map((edu, i) => (
-              <div key={i} className="sb-edu">{edu.degree}</div>
-            ))}
+            <div className="sb-edu-grid">
+              {data.education.map((edu, i) => (
+                <div key={i} className="sb-edu">{edu.degree}</div>
+              ))}
+            </div>
           </div>
 
           {data.systems && data.systems.length > 0 && (

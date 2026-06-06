@@ -5,40 +5,47 @@ import { cvMain, variations } from "@/data/cv";
 
 export default function Home() {
   const handlePDF = () => {
-    const printContents = document.getElementById("cv-render")?.innerHTML;
-    if (!printContents) return;
+    const el = document.getElementById("cv-render");
+    if (!el) return;
+    const styles = Array.from(document.styleSheets)
+      .map((sheet) => {
+        try { return Array.from(sheet.cssRules).map((r) => r.cssText).join("\n"); }
+        catch { return ""; }
+      })
+      .join("\n");
 
     const w = window.open("", "_blank", "width=800,height=600");
-    if (!w) { alert("Bloqueador de pop-up detectado. Permita pop-ups para este site."); return; }
+    if (!w) { alert("Permita pop-ups para baixar o PDF."); return; }
 
     w.document.write(`<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>CV — ${cvMain.personal.name}</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{font-family:'Inter',sans-serif;background:white;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{font-family:'Inter',sans-serif;background:white;display:flex;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 @page{size:A4;margin:0}
-${document.querySelector("style[data-nscript]")?.textContent || document.querySelectorAll("style")[0]?.textContent || ""}
+${styles}
+.no-print{display:none!important}
+.paper{flex-direction:row!important;box-shadow:none!important;margin:0!important;width:210mm!important;min-height:297mm!important}
+.sidebar{width:70mm!important;min-width:70mm!important;padding:20mm 7mm 10mm!important}
+.sb-contacts-grid{display:block!important}
+.sb-edu-grid{display:block!important}
+.sb-edu{font-size:7pt!important;padding:0!important;background:none!important;margin-bottom:3mm!important;padding-left:3mm!important;border-left:0.4pt solid rgba(255,255,255,0.25)!important;border-radius:0!important}
+.paper-wrap{padding:0!important}
 </style>
 </head>
-<body style="display:flex;justify-content:center;background:white">
-${printContents}
-<script>
-window.onload = function() {
-  setTimeout(function(){ window.print(); }, 500);
-};
-<\/script>
-</body>
+<body>${el.innerHTML}</body>
+<script>window.onload=function(){setTimeout(function(){window.print()},600)}</script>
 </html>`);
     w.document.close();
   };
 
   return (
     <>
-      {/* Toolbar */}
       <div className="no-print">
         <div className="toolbar">
           <div className="tb-variations">
@@ -57,7 +64,6 @@ window.onload = function() {
         </div>
       </div>
 
-      {/* CV */}
       <div id="cv-render">
         <CVTemplate data={cvMain} />
       </div>
