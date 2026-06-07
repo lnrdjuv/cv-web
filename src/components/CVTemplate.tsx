@@ -11,69 +11,61 @@ const icons = {
 
 export default function CVTemplate({ data }: { data: CVData }) {
   return (
-    <>
-      {/* Paper */}
-      <div className="word-canvas">
-        <div className="paper">
-          {/* Header */}
-          <div className="cv-header-section">
-            <h1 className="cv-name">{data.personal.name}</h1>
-            <p className="cv-role">{data.personal.title}</p>
-            <div className="cv-contact-row">
-              <span>{icons.location} {data.personal.address}</span>
-              <span>{icons.phone} {data.personal.phone}</span>
-              <span>{icons.email} {data.personal.email}</span>
-              <span>{icons.linkedin} {data.personal.linkedin}</span>
-              <span>{icons.id} CNH {data.personal.cnh} · CREA {data.personal.crea}</span>
-              <span>{icons.calendar} {data.personal.availability}</span>
-            </div>
-          </div>
-
-          {/* Objective */}
-          <div className="cv-section">
-            <h2 className="cv-section-title">Objetivo Profissional</h2>
-            <div className="cv-text"><p>{data.objective}</p></div>
-          </div>
-
-          {/* Summary */}
-          <div className="cv-section">
-            <h2 className="cv-section-title">Resumo Profissional</h2>
-            <div className="cv-text">
-              {data.summary.map((p, i) => <p key={i}>{p}</p>)}
-            </div>
-            {data.systems && data.systems.length > 0 && (
-              <div className="cv-systems" style={{ marginTop: 10 }}>
-                {data.systems.map(s => <span key={s}>{s}</span>)}
-              </div>
-            )}
-          </div>
-
-          {/* Education */}
-          <div className="cv-section">
-            <h2 className="cv-section-title">Formação</h2>
-            <ul className="cv-edu-list">
-              {data.education.map((edu, i) => <li key={i}>{edu.degree}</li>)}
-            </ul>
-          </div>
-
-          {/* Experience */}
-          <div className="cv-section">
-            <h2 className="cv-section-title">Experiência Profissional</h2>
-            {data.experience.map((exp, i) => (
-              <div key={i} className="cv-exp">
-                <div className="cv-exp-head">
-                  <span className="cv-exp-company">{exp.company}</span>
-                  <span className="cv-exp-period">{exp.period}</span>
-                </div>
-                <div className="cv-exp-role">{exp.role}</div>
-                <ul className="cv-exp-bullets">
-                  {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
-                </ul>
-              </div>
-            ))}
+    <div className="canvas">
+      <div className="paper">
+        <div className="cv-header">
+          <h1 className="cv-name">{data.personal.name}</h1>
+          <p className="cv-role">{data.personal.title}</p>
+          <div className="cv-contacts">
+            <span>{icons.location} {data.personal.address}</span>
+            <span>{icons.phone} {data.personal.phone}</span>
+            <span>{icons.email} {data.personal.email}</span>
+            <span>{icons.linkedin} {data.personal.linkedin}</span>
+            <span>{icons.id} CNH {data.personal.cnh} · CREA {data.personal.crea}</span>
+            <span>{icons.calendar} {data.personal.availability}</span>
           </div>
         </div>
+
+        <div className="cv-section">
+          <h2 className="cv-section-title">Objetivo Profissional</h2>
+          <div className="cv-text"><p>{data.objective}</p></div>
+        </div>
+
+        <div className="cv-section">
+          <h2 className="cv-section-title">Resumo Profissional</h2>
+          <div className="cv-text">
+            {data.summary.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
+          {data.systems && data.systems.length > 0 && (
+            <div className="cv-systems">
+              {data.systems.map(s => <span key={s}>{s}</span>)}
+            </div>
+          )}
+        </div>
+
+        <div className="cv-section">
+          <h2 className="cv-section-title">Formação</h2>
+          <ul className="cv-edu-list">
+            {data.education.map((edu, i) => <li key={i}>{edu.degree}</li>)}
+          </ul>
+        </div>
+
+        <div className="cv-section">
+          <h2 className="cv-section-title">Experiência Profissional</h2>
+          {data.experience.map((exp, i) => (
+            <div key={i} className="cv-exp">
+              <div className="cv-exp-head">
+                <span className="cv-exp-company">{exp.company}</span>
+                <span className="cv-exp-period">{exp.period}</span>
+              </div>
+              <div className="cv-exp-role">{exp.role}</div>
+              <ul className="cv-exp-bullets">
+                {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
