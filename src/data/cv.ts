@@ -112,5 +112,5 @@ export const cvMain: CVData = {
 // export const cvTech: CVData = { ... }
 
 export const variations: Record<string, { slug: string; label: string; data: CVData }> = {
-  main: { slug: "main", label: "Completo", data: cvMain },
+  main: { slug: "main", label: "01 — 06/06/2026", data: cvMain },
 };
