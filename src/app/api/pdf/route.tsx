@@ -2,10 +2,15 @@ import { NextResponse } from "next/server";
 import { renderToStream } from "@react-pdf/renderer";
 import { CVDocument } from "@/components/CVDocument";
 import { cvMain } from "@/data/cv";
+import { cvATS } from "@/data/cv";
 
-export async function GET(): Promise<Response> {
+export async function GET(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const variant = url.searchParams.get("v") || "main";
+  const data = variant === "ats" ? cvATS : cvMain;
+
   try {
-    const stream = await renderToStream(<CVDocument data={cvMain} />);
+    const stream = await renderToStream(<CVDocument data={data} />);
     const chunks: Uint8Array[] = [];
 
     for await (const chunk of stream as AsyncIterable<Buffer>) {
@@ -24,7 +29,7 @@ export async function GET(): Promise<Response> {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `inline; filename="CV_Leonardo_Silva_Juvencio.pdf"`,
+        "Content-Disposition": `inline; filename="CV_${data.personal.name.replace(/\s+/g, "_")}_${variant}.pdf"`,
       },
     });
   } catch (error) {

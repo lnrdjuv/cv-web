@@ -1,22 +1,27 @@
 "use client";
 
 import CVTemplate from "@/components/CVTemplate";
-import { cvMain, variations } from "@/data/cv";
+import { cvMain, cvATS, variations } from "@/data/cv";
 import { useState } from "react";
+import { CVData } from "@/data/cv";
+
+const cvMap: Record<string, CVData> = { main: cvMain, ats: cvATS };
 
 export default function Home() {
+  const [active, setActive] = useState("main");
   const [loading, setLoading] = useState(false);
+  const data = cvMap[active] || cvMain;
 
   const handleDownloadPDF = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/pdf");
+      const res = await fetch(`/api/pdf?v=${active}`);
       if (!res.ok) throw new Error("Erro ao gerar PDF");
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `CV_${cvMain.personal.name.replace(/\s+/g, "_")}.pdf`;
+      a.download = `CV_${data.personal.name.replace(/\s+/g, "_")}_${active}.pdf`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -33,19 +38,19 @@ export default function Home() {
       {/* Title Bar */}
       <div className="no-print titlebar">
         <div className="icon">W</div>
-        <span className="name">CV — {cvMain.personal.name}.docx — Word</span>
+        <span className="name">CV — {data.personal.name}.docx — Word</span>
       </div>
 
       {/* Toolbar */}
       <div className="no-print toolbar">
         {Object.values(variations).map((v) => (
-          <a
+          <button
             key={v.slug}
-            href={v.slug === "main" ? "/" : `/${v.slug}`}
-            className={`toolbar-btn ${v.slug === "main" ? "primary" : ""}`}
+            onClick={() => setActive(v.slug)}
+            className={`toolbar-btn ${v.slug === active ? "primary" : ""}`}
           >
             {v.label}
-          </a>
+          </button>
         ))}
 
         <div className="toolbar-sep" />
@@ -61,7 +66,7 @@ export default function Home() {
       </div>
 
       {/* CV */}
-      <CVTemplate data={cvMain} />
+      <CVTemplate data={data} />
     </>
   );
 }
