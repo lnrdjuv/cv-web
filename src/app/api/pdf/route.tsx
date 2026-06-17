@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import { renderToStream } from "@react-pdf/renderer";
 import { CVDocument } from "@/components/CVDocument";
-import { cvMain } from "@/data/cv";
-import { cvATS } from "@/data/cv";
+import { cvMain, cvATS, cvAegea, cvGeneral, cvItinera, variations } from "@/data/cv";
+import type { CVData } from "@/data/cv";
 
 export async function GET(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const variant = url.searchParams.get("v") || "main";
-  const data = variant === "ats" ? cvATS : cvMain;
+  const cvMap: Record<string, CVData> = { main: cvMain, ats: cvATS, aegea: cvAegea, general: cvGeneral, itinera: cvItinera };
+  const data = cvMap[variant] || cvMain;
 
   try {
     const stream = await renderToStream(<CVDocument data={data} />);

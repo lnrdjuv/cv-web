@@ -1,6 +1,7 @@
 import { cvMain } from "@/data/cv";
+import type { CVData } from "@/data/cv";
 import React from "react";
-import { Document, Page, Text, View, StyleSheet, Font, Svg, Circle, Path, Rect, Line, Polyline } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Font, Svg, Circle, Path, Rect, Line, Polyline, Link } from "@react-pdf/renderer";
 
 Font.register({
   family: "Helvetica",
@@ -54,6 +55,11 @@ const styles = StyleSheet.create({
     fontSize: 8.5,
     color: "#666",
   },
+  contactLink: {
+    fontSize: 8.5,
+    color: "#4472c4",
+    textDecoration: "none",
+  },
   section: {
     marginBottom: 12,
   },
@@ -76,12 +82,37 @@ const styles = StyleSheet.create({
   },
   systemsRow: {
     flexDirection: "row",
-    gap: 8,
-    marginTop: 4,
+    flexWrap: "wrap",
+    gap: 6,
+    marginTop: 6,
   },
   systemTag: {
     fontSize: 8.5,
     color: "#4472c4",
+    backgroundColor: "#eef3fc",
+    borderRadius: 3,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  digitalToolItem: {
+    marginBottom: 4,
+    paddingLeft: 8,
+  },
+  digitalToolName: {
+    fontSize: 9.5,
+    fontFamily: "Helvetica-Bold",
+    color: "#2b5797",
+  },
+  digitalToolDesc: {
+    fontSize: 9,
+    color: "#555",
+    lineHeight: 1.4,
+  },
+  digitalToolLink: {
+    fontSize: 8,
+    color: "#4472c4",
+    fontStyle: "italic",
+    marginTop: 1,
   },
   eduItem: {
     fontSize: 9.5,
@@ -119,6 +150,33 @@ const styles = StyleSheet.create({
     color: "#333",
     paddingLeft: 8,
     marginBottom: 1.5,
+  },
+  refItem: {
+    marginBottom: 8,
+    paddingLeft: 10,
+    borderLeft: "3px solid #b4c6e7",
+    paddingBottom: 4,
+  },
+  refName: {
+    fontSize: 10.5,
+    fontFamily: "Helvetica-Bold",
+    color: "#2b5797",
+  },
+  refRole: {
+    fontSize: 9.5,
+    color: "#333",
+    marginTop: 1,
+  },
+  refCompany: {
+    fontSize: 9,
+    color: "#777",
+    fontStyle: "italic",
+    marginTop: 0.5,
+  },
+  refContact: {
+    fontSize: 9,
+    color: "#4472c4",
+    marginTop: 3,
   },
 });
 
@@ -177,7 +235,7 @@ function ContactIcon({ type }: { type: "location" | "phone" | "email" | "linkedi
   }
 }
 
-function CVDocument({ data }: { data: typeof cvMain }) {
+function CVDocument({ data }: { data: CVData }) {
   return (
     <Document
       title={`CV — ${data.personal.name}`}
@@ -195,7 +253,7 @@ function CVDocument({ data }: { data: typeof cvMain }) {
             </View>
             <View style={styles.contactItem}>
               <ContactIcon type="phone" />
-              <Text style={styles.contactText}>{data.personal.phone}</Text>
+              <Link href={`https://wa.me/556385162431`} style={styles.contactLink}>{data.personal.phone}</Link>
             </View>
             <View style={styles.contactItem}>
               <ContactIcon type="email" />
@@ -203,7 +261,7 @@ function CVDocument({ data }: { data: typeof cvMain }) {
             </View>
             <View style={styles.contactItem}>
               <ContactIcon type="linkedin" />
-              <Text style={styles.contactText}>{data.personal.linkedin}</Text>
+              <Link href={`https://${data.personal.linkedin}`} style={styles.contactLink}>{data.personal.linkedin}</Link>
             </View>
             <View style={styles.contactItem}>
               <ContactIcon type="id" />
@@ -245,6 +303,26 @@ function CVDocument({ data }: { data: typeof cvMain }) {
           ))}
         </View>
 
+        {/* Digital Tools */}
+        {data.digitalTools && data.digitalTools.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Soluções Digitais Implementadas</Text>
+            {data.digitalTools.map((tool, i) => (
+              <View key={i} style={styles.digitalToolItem}>
+                <Text style={styles.digitalToolDesc}>
+                  <Text style={styles.digitalToolName}>{tool.name}</Text>
+                  {" — " + tool.description}
+                </Text>
+                {tool.url && (
+                  <Link href={tool.url} style={styles.digitalToolLink}>
+                    {"Acessar plataforma >"}
+                  </Link>
+                )}
+              </View>
+            ))}
+          </View>
+        )}
+
         {/* Experience */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Experiência Profissional</Text>
@@ -261,6 +339,23 @@ function CVDocument({ data }: { data: typeof cvMain }) {
             </View>
           ))}
         </View>
+
+        {/* References */}
+        {data.references && data.references.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Referências Profissionais</Text>
+            {data.references.map((ref, i) => (
+              <View key={i} style={styles.refItem}>
+                <Text style={styles.refName}>{ref.name}</Text>
+                <Text style={styles.refRole}>{ref.role}</Text>
+                <Text style={styles.refCompany}>{ref.company}</Text>
+                <Link href={`https://wa.me/55${ref.phone.replace(/\D/g, "")}`} style={styles.refContact}>
+                  {"Telefone: " + ref.phone}
+                </Link>
+              </View>
+            ))}
+          </View>
+        )}
       </Page>
     </Document>
   );

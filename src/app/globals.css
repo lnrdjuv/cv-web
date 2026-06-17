@@ -270,6 +270,55 @@ body {
   border-radius: 2px;
 }
 
+/* ========== REFERENCES ========== */
+.cv-references {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cv-reference-item {
+  padding-left: 14px;
+  border-left: 3px solid var(--word-line);
+}
+
+.cv-ref-name {
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--word-heading);
+}
+
+.cv-ref-role {
+  font-size: 11pt;
+  color: #555;
+  margin-top: 1px;
+}
+
+.cv-ref-company {
+  font-size: 10pt;
+  color: #777;
+  font-style: italic;
+  margin-top: 1px;
+}
+
+.cv-ref-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 4px;
+  font-size: 10pt;
+  color: var(--word-accent);
+}
+
+.cv-ref-contact a {
+  color: var(--word-accent);
+  text-decoration: none;
+}
+
+.cv-ref-contact a:hover {
+  text-decoration: underline;
+}
+
 /* ========== MOBILE ========== */
 @media (max-width: 600px) {
   .titlebar { padding: 5px 12px; font-size: 11px; }

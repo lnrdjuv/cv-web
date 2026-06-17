@@ -50,6 +50,24 @@ export default function CVTemplate({ data }: { data: CVData }) {
           </ul>
         </div>
 
+        {data.digitalTools && data.digitalTools.length > 0 && (
+          <div className="cv-section">
+            <h2 className="cv-section-title">Soluções Digitais Implementadas</h2>
+            <div className="cv-text">
+              {data.digitalTools.map((tool, i) => (
+                <div key={i} style={{ marginBottom: "8px" }}>
+                  <p><strong>{tool.name}</strong> — {tool.description}</p>
+                  {tool.url && (
+                    <a href={tool.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.85em", color: "#4472c4", textDecoration: "none" }}>
+                      🔗 Acessar plataforma →
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="cv-section">
           <h2 className="cv-section-title">Experiência Profissional</h2>
           {data.experience.map((exp, i) => (
@@ -65,6 +83,25 @@ export default function CVTemplate({ data }: { data: CVData }) {
             </div>
           ))}
         </div>
+
+        {data.references && data.references.length > 0 && (
+          <div className="cv-section">
+            <h2 className="cv-section-title">Referências Profissionais</h2>
+            <div className="cv-references">
+              {data.references.map((ref, i) => (
+                <div key={i} className="cv-reference-item">
+                  <div className="cv-ref-name">{ref.name}</div>
+                  <div className="cv-ref-role">{ref.role}</div>
+                  <div className="cv-ref-company">{ref.company}</div>
+                  <div className="cv-ref-contact">
+                    <span>📱 {ref.phone}</span>
+                    {ref.linkedin && <span>🔗 <a href={`https://${ref.linkedin}`} target="_blank" rel="noopener noreferrer">{ref.linkedin}</a></span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
