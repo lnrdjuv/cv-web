@@ -457,6 +457,117 @@ export const cvItinera: CVData = {
     },
   ],
   systems: ["Excel Avançado (VBA, Dashboards, Power Query)", "Power BI", "SAP", "OBZ", "UAU", "CRM", "AutoCAD", "Pacote Office"],
+  digitalTools: [
+    { name: "Plataforma de Gestão de Obras", description: "Sistema web para gestão de obras e acompanhamento físico-financeiro de contratos", url: "https://projectobra.vercel.app/" },
+    { name: "Gerador KML Georreferenciado", description: "Ferramenta de mapeamento e visualização de redes de distribuição em formato KML", url: "https://geraddor-kml.vercel.app/" },
+    { name: "Otimizador de Rotas de Campo", description: "Sistema de otimização de rotas para equipes de leitura, fiscalização e manutenção", url: "https://melhor-rota-possivel.vercel.app/" },
+    { name: "Controle de Pendências Documentais", description: "Plataforma de gestão de documentação técnica e relatórios de pendências", url: "https://relatoriopendencia.vercel.app/" },
+  ],
+  references: [
+    {
+      name: "Wendel Sousa",
+      role: "Gerente de Engenharia",
+      company: "Aegea Saneamento",
+      phone: "(94) 9.9279-1996",
+      linkedin: "linkedin.com/in/wendel-sousa",
+    },
+  ],
+};
+
+// ===== VERSÃO 06 — EGIS / ENGENHEIRO CIVIL ORÇAMENTISTA =====
+export const cvEgis: CVData = {
+  personal: {
+    name: "Leonardo Silva Juvencio",
+    title: "Engenheiro Civil — Custos e Orçamento de Infraestrutura",
+    address: "Gurupi / TO",
+    phone: "(63) 9.8516-2431",
+    email: "leonardo.juvencio018@gmail.com",
+    linkedin: "linkedin.com/in/leonardo-juvencio",
+    cnh: "B",
+    crea: "Ativo",
+    availability: "Início imediato",
+  },
+  objective:
+    "Engenheiro Civil com sólida experiência em orçamentos de infraestrutura de grande porte, busca a vaga de Engenheiro Civil Orçamentista na Egis para aplicar expertise em composição de custos unitários, análise de projetos, elaboração de propostas técnicas e comerciais, e implementação de soluções BIM 5D para gestão de custos. Preparado para atuar em obras rodoviárias, ferroviárias, mobilidade urbana e saneamento.",
+  summary: [
+    "Mais de 4 anos de experiência em orçamento, controle e planejamento de custos de obras de infraestrutura, incluindo recuperação asfáltica em via concessionária, redes de esgoto, reservatórios e estação de tratamento de água (ETA 60 m³/s).",
+    "Atuação direta em composição de custos unitários e formação de preços, com elaboração de planilhas orçamentárias detalhadas para levantamento de quantitativos de serviços, materiais, equipamentos e mão de obra.",
+    "Experiência comprovada em monitoramento de indicadores de desempenho físico-financeiro, análise de desvios orçamentários e elaboração de relatórios gerenciais de custos e produtividade utilizando Excel avançado (VBA, Dashboards, Power Query) e Power BI.",
+    "Vivência em análise de medições de serviços executados, apoio a processos de faturamento e acompanhamento de cronogramas físico-financeiros, identificando riscos e oportunidades de otimização de custos.",
+    "Conhecimento em gestão de contratos, elaboração de termos de referência, atendimento a requisitos regulatórios e atualização de bases de custos para tomada de decisão.",
+  ],
+  education: [
+    { degree: "MBA em Projeto, Desempenho e Construção de Estruturas e Fundações" },
+    { degree: "Superior Completo em Engenharia Civil" },
+    { degree: "Técnico em Administração" },
+  ],
+  digitalTools: [
+    { name: "Plataforma de Gestão de Obras", description: "Sistema web para gestão de obras e acompanhamento físico-financeiro de contratos", url: "https://project-app-ruddy.vercel.app/" },
+    { name: "Gerador KML Georreferenciado", description: "Ferramenta de mapeamento e visualização de redes de distribuição em formato KML", url: "https://geraddor-kml.vercel.app/" },
+    { name: "Otimizador de Rotas de Campo", description: "Sistema de otimização de rotas para equipes de leitura, fiscalização e manutenção", url: "https://melhor-rota-possivel.vercel.app/" },
+    { name: "Controle de Pendências Documentais", description: "Plataforma de gestão de documentação técnica e relatórios de pendências", url: "https://relatoriopendencia.vercel.app/" },
+  ],
+  experience: [
+    {
+      company: "BRK Ambiental",
+      role: "Encarregado de Obras",
+      period: "07/2024 — atual",
+      bullets: [
+        "Elaborou e controlou orçamento de obras de infraestrutura de grande porte: revitalização de barragens, expansão de redes de esgoto (coletor tronco 500mm, PVC 400mm, 3km), reforma de reservatórios de concreto armado e construção de ETA (60 m³/s)",
+        "Desenvolveu composições de custos unitários e formação de preços com base em referenciais de mercado (SICRO, SINAPI, SCO, DER)",
+        "Realizou levantamento quantitativo detalhado de serviços, materiais, equipamentos e mão de obra para projetos complexos de saneamento",
+        "Monitorou indicadores de desempenho físico-financeiro, elaborando relatórios gerenciais de desvios orçamentários e produtividade para subsidiar tomadas de decisão",
+        "Analisou medições de serviços executados e apoiou processos de faturamento, conferindo quantitativos e garantindo conformidade contratual",
+        "Acompanhou cronogramas físico-financeiros de múltiplas frentes de serviço, identificando riscos e propondo medidas de otimização de custos",
+        "Elaborou termos de referência e documentos técnicos para formalização e acompanhamento de contratos, aditivos e pleitos",
+        "Desenvolveu planilhas de controle com automação (VBA e Power Query), aumentando a precisão das projeções orçamentárias em 40%",
+        "Gerenciou contratos com prestadores, desenvolvendo API para controle de fornecedores",
+      ],
+    },
+    {
+      company: "ARCADIS",
+      role: "Gestor de Obras",
+      period: "10/2023 — 07/2024",
+      bullets: [
+        "Gerenciou e controlou custos da obra de expansão da Estação Elevatória de Esgoto de Gurupi, acompanhando cronograma físico-financeiro",
+        "Desenvolveu plataforma online para elaboração de relatórios georreferenciados, reduzindo o tempo de produção de relatórios gerenciais em 60%",
+        "Coordenou equipes de campo garantindo conformidade técnica, controle de qualidade e atendimento a especificações contratuais",
+      ],
+    },
+    {
+      company: "PROSTAFF Recursos Humanos",
+      role: "Técnico de Projetos e Controle de Obras I",
+      period: "01/2023 — 10/2023",
+      bullets: [
+        "Fiscalizou atividades de recomposição asfáltica em via concessionada (obra rodoviária), realizando levantamento de quantitativos e controle de serviços executados",
+        "Desenvolveu composições de custo unitário para serviços de recomposição asfáltica e crescimento vegetativo, controlando produtividade e custos (equipe 25+ operários)",
+        "Implantou dashboards em Power BI e ferramentas automatizadas em Excel para acompanhamento diário de indicadores físico-financeiros",
+        "Gerenciou cronograma de execução, otimizando alocação de equipamentos e mão de obra para cumprimento de metas contratuais da concessionária",
+        "Aplicou tecnologia de geolocalização para monitoramento de frentes de serviço em obra rodoviária",
+      ],
+    },
+    {
+      company: "Construtora Sempre Viva",
+      role: "Engenheiro Civil",
+      period: "01/2022 — 12/2022",
+      bullets: [
+        "Elaborou orçamentos e estimativas de custos para obras civis, com levantamento de quantitativos, composição de preços unitários e formação de preços de venda",
+        "Implementou sistema de medição e controle orçamentário com rastreabilidade dos valores investidos, garantindo controle financeiro rigoroso",
+        "Realizou medições detalhadas de serviços executados para faturamento, conferindo aderência entre previsto x executado",
+        "Coordenou atividades de campo controlando produtividade, prazos e custos, entregando 100% dos projetos no cronograma executivo",
+      ],
+    },
+  ],
+  systems: ["Excel Avançado (VBA, Dashboards, Power Query)", "Power BI", "SAP", "OBZ", "UAU", "CRM", "AutoCAD", "Pacote Office"],
+  references: [
+    {
+      name: "Wendel Sousa",
+      role: "Gerente de Engenharia",
+      company: "Aegea Saneamento",
+      phone: "(94) 9.9279-1996",
+      linkedin: "linkedin.com/in/wendel-sousa",
+    },
+  ],
 };
 
 // ===== VARIATIONS =====
@@ -466,4 +577,5 @@ export const variations: Record<string, { slug: string; label: string; data: CVD
   aegea: { slug: "aegea", label: "03 — Aegea (Supervisor de Serviços)", data: cvAegea },
   general: { slug: "general", label: "04 — Geral + Soluções Digitais", data: cvGeneral },
   itinera: { slug: "itinera", label: "05 — ITINERA (Eng. Custos Rodoviárias)", data: cvItinera },
+  egis: { slug: "egis", label: "06 — EGIS (Eng. Civil Orçamentista)", data: cvEgis },
 };
