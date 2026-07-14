@@ -122,18 +122,18 @@ body {
   max-width: 700px;
   background: var(--word-paper);
   box-shadow: 0 1px 6px rgba(0,0,0,0.18), 0 0 1px rgba(0,0,0,0.1);
-  padding: 62px 64px;
+  padding: 50px 56px;
 }
 
 /* ========== CV CONTENT ========== */
 .cv-header {
-  margin-bottom: 32px;
-  padding-bottom: 20px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
   border-bottom: 2px solid var(--word-heading);
 }
 
 .cv-name {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--word-heading);
   letter-spacing: -0.3px;
@@ -150,8 +150,8 @@ body {
 .cv-contacts {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 22px;
-  margin-top: 14px;
+  gap: 5px 18px;
+  margin-top: 10px;
   font-size: 12px;
   color: var(--word-muted);
 }
@@ -171,7 +171,7 @@ body {
   flex-shrink: 0;
 }
 
-.cv-section { margin-bottom: 28px; }
+.cv-section { margin-bottom: 18px; }
 
 .cv-section-title {
   font-size: 13px;
@@ -179,21 +179,21 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.7px;
   color: var(--word-heading);
-  margin-bottom: 12px;
-  padding-bottom: 6px;
+  margin-bottom: 7px;
+  padding-bottom: 3px;
   border-bottom: 1px solid var(--word-line);
 }
 
 .cv-text {
-  font-size: 11.5pt;
-  line-height: 1.9;
+  font-size: 11pt;
+  line-height: 1.6;
   color: #333;
   text-align: justify;
 }
 
-.cv-text p { margin-bottom: 12px; }
+.cv-text p { margin-bottom: 7px; }
 
-.cv-exp { margin-bottom: 22px; }
+.cv-exp { margin-bottom: 14px; }
 
 .cv-exp-head {
   display: flex;
@@ -218,7 +218,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   color: var(--word-accent);
-  margin: 4px 0 10px;
+  margin: 1px 0 5px;
   font-style: italic;
 }
 
@@ -228,10 +228,10 @@ body {
 }
 
 .cv-exp-bullets li {
-  font-size: 11.5pt;
-  line-height: 1.75;
+  font-size: 11pt;
+  line-height: 1.5;
   color: #333;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .cv-edu-list {
@@ -240,12 +240,12 @@ body {
 }
 
 .cv-edu-list li {
-  font-size: 11.5pt;
-  line-height: 1.75;
+  font-size: 11pt;
+  line-height: 1.5;
   color: #333;
   padding-left: 14px;
   position: relative;
-  margin-bottom: 7px;
+  margin-bottom: 3px;
 }
 
 .cv-edu-list li::before {
