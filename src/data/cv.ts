@@ -570,6 +570,74 @@ export const cvEgis: CVData = {
   ],
 };
 
+// ===== VERSÃO 07 — ONE PAGE (RESUMO ENXUTO) =====
+export const cvOnePage: CVData = {
+  personal: {
+    name: "Leonardo Silva Juvencio",
+    title: "Engenheiro Civil",
+    address: "Gurupi / TO",
+    phone: "(63) 9.8516-2431",
+    email: "leonardo.juvencio018@gmail.com",
+    linkedin: "linkedin.com/in/leonardo-juvencio",
+    cnh: "B",
+    crea: "Ativo",
+    availability: "Início imediato",
+  },
+  objective: "Área de Engenharia Civil.",
+  summary: [
+    "Mais de 4 anos de experiência em gerenciamento de obras de infraestrutura, saneamento básico e contratos públicos. Atuação em fiscalização técnica, controle físico-financeiro, gestão de equipes multidisciplinares e atendimento a requisitos regulatórios.",
+    "Diferencial em transformação digital: desenvolvimento de plataformas georreferenciadas, ferramentas de automação e dashboards (Power BI, Excel VBA) para otimização de processos, redução de tempo de relatórios em 60% e aumento de precisão orçamentária em mais de 40%.",
+  ],
+  education: [
+    { degree: "MBA em Projeto, Desempenho e Construção de Estruturas e Fundações" },
+    { degree: "Superior Completo em Engenharia Civil" },
+    { degree: "Técnico em Administração" },
+  ],
+  experience: [
+    {
+      company: "BRK Ambiental",
+      role: "Encarregado de Obras",
+      period: "07/2024 — atual",
+      bullets: [
+        "Gerenciamento de contratos de revitalização de barragens, expansão de redes de esgoto e fiscalização técnica de obras de infraestrutura",
+        "Desenvolvimento de ferramentas de automação e controle físico-financeiro (VBA, Power BI), com ganho de precisão orçamentária superior a 40%",
+        "Supervisão de obras relevantes: coletor tronco 500mm (método não destrutivo), reforma de reservatórios de concreto armado e construção de ETA (60 m³/s)",
+        "Elaboração de termos de referência, relatórios técnicos e atendimento a requisitos do órgão regulador municipal",
+      ],
+    },
+    {
+      company: "ARCADIS",
+      role: "Gestor de Obras",
+      period: "10/2023 — 07/2024",
+      bullets: [
+        "Fiscalização técnica integral do projeto de expansão da Estação Elevatória de Esgoto Final de Gurupi",
+        "Desenvolvimento e implementação de plataforma online para relatórios georreferenciados, reduzindo o tempo de produção em 60%",
+        "Gestão de demandas do órgão regulador municipal e otimização de processos de relatórios",
+      ],
+    },
+    {
+      company: "PROSTAFF Recursos Humanos",
+      role: "Técnico de Projetos e Controle de Obras I",
+      period: "01/2023 — 10/2023",
+      bullets: [
+        "Fiscalização de atividades de recomposição asfáltica em via concessionada, com gerenciamento de equipe terceirizada (25+ operários)",
+        "Implantação de tecnologia de geolocalização e dashboards Power BI para monitoramento de obras públicas em tempo real",
+        "Desenvolvimento de boletins diários automatizados com indicadores de produtividade",
+      ],
+    },
+    {
+      company: "Construtora Sempre Viva",
+      role: "Engenheiro Civil",
+      period: "01/2022 — 12/2022",
+      bullets: [
+        "Gerenciamento de projetos, medições detalhadas e estimativas orçamentárias com 100% de cumprimento de prazos executivos",
+        "Implementação de sistema de medição confiável com rastreabilidade dos valores investidos",
+      ],
+    },
+  ],
+  systems: ["SAP", "OBZ", "UAU", "CRM", "Power BI", "Excel Avançado"],
+};
+
 // ===== VARIATIONS =====
 export const variations: Record<string, { slug: string; label: string; data: CVData }> = {
   main: { slug: "main", label: "01 — 16/06/2026", data: cvMain },
@@ -578,4 +646,5 @@ export const variations: Record<string, { slug: string; label: string; data: CVD
   general: { slug: "general", label: "04 — Geral + Soluções Digitais", data: cvGeneral },
   itinera: { slug: "itinera", label: "05 — ITINERA (Eng. Custos Rodoviárias)", data: cvItinera },
   egis: { slug: "egis", label: "06 — EGIS (Eng. Civil Orçamentista)", data: cvEgis },
+  onepage: { slug: "onepage", label: "07 — One Page", data: cvOnePage },
 };

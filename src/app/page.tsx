@@ -1,11 +1,11 @@
 "use client";
 
 import CVTemplate from "@/components/CVTemplate";
-import { cvMain, cvATS, cvAegea, cvGeneral, cvItinera, variations } from "@/data/cv";
+import { cvMain, cvATS, cvAegea, cvGeneral, cvItinera, cvOnePage, cvEgis, variations } from "@/data/cv";
+import type { CVData } from "@/data/cv";
 import { useState } from "react";
-import { CVData } from "@/data/cv";
 
-const cvMap: Record<string, CVData> = { main: cvMain, ats: cvATS, aegea: cvAegea, general: cvGeneral, itinera: cvItinera };
+const cvMap: Record<string, CVData> = { main: cvMain, ats: cvATS, aegea: cvAegea, general: cvGeneral, itinera: cvItinera, egis: cvEgis, onepage: cvOnePage };
 
 export default function Home() {
   const [active, setActive] = useState("main");
