@@ -275,10 +275,12 @@ function CVDocument({ data }: { data: CVData }) {
         </View>
 
         {/* Objective */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Objetivo Profissional</Text>
-          <Text style={styles.paragraph}>{data.objective}</Text>
-        </View>
+        {data.objective && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Objetivo Profissional</Text>
+            <Text style={styles.paragraph}>{data.objective}</Text>
+          </View>
+        )}
 
         {/* Summary */}
         <View style={styles.section}>

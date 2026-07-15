@@ -638,6 +638,70 @@ export const cvOnePage: CVData = {
   systems: ["SAP", "OBZ", "UAU", "CRM", "Power BI", "Excel Avançado"],
 };
 
+// ===== VERSÃO 08 — MÉTODO DUARTE (Currículo de Vendas, 1 Página) =====
+// Baseado no post de @oduarteoficial: currículo é documento de vendas, não memorial.
+// Regras: 1 página, resumo em 2 linhas, máx 3 bullets/exp com números, sem enrolação.
+export const cvDuarte: CVData = {
+  personal: {
+    name: "Leonardo Silva Juvencio",
+    title: "Engenheiro Civil — Gestão de Obras e Automação",
+    address: "Gurupi / TO",
+    phone: "(63) 9.8516-2431",
+    email: "leonardo.juvencio018@gmail.com",
+    linkedin: "linkedin.com/in/leonardo-juvencio",
+    cnh: "B",
+    crea: "Ativo",
+    availability: "Início imediato",
+  },
+  objective: "",
+  summary: [
+    "Engenheiro Civil com 4+ anos em gestão de obras de infraestrutura e saneamento. Entregou automações que reduziram tempo de relatórios em 60% e aumentaram precisão orçamentária em mais de 40%.",
+  ],
+  education: [
+    { degree: "MBA em Projeto, Desempenho e Construção de Estruturas e Fundações" },
+    { degree: "Superior Completo em Engenharia Civil" },
+  ],
+  experience: [
+    {
+      company: "BRK Ambiental",
+      role: "Encarregado de Obras",
+      period: "07/2024 — atual",
+      bullets: [
+        "Gerencia múltiplos contratos simultâneos de revitalização de barragens e expansão de redes de esgoto, com 100% de cumprimento dos cronogramas físicos",
+        "Desenvolveu planilhas de controle físico-financeiro (VBA e Power BI) que aumentaram a precisão das projeções orçamentárias em mais de 40%",
+        "Supervisionou obras de coletor tronco 500mm (método não destrutivo), ETA de 60 m³/s e reforma de 2 reservatórios de concreto armado",
+      ],
+    },
+    {
+      company: "ARCADIS",
+      role: "Gestor de Obras",
+      period: "10/2023 — 07/2024",
+      bullets: [
+        "Fiscalizou projeto de expansão da Estação Elevatória de Esgoto Final de Gurupi, garantindo conformidade técnica e atendimento ao órgão regulador",
+        "Implementou plataforma online de relatórios georreferenciados que reduziu o tempo de produção de relatórios em 60%",
+      ],
+    },
+    {
+      company: "PROSTAFF / Concessionária",
+      role: "Técnico de Projetos e Controle de Obras I",
+      period: "01/2023 — 10/2023",
+      bullets: [
+        "Gerenciou equipe terceirizada de 25+ operários em recomposição asfáltica de via concessionada",
+        "Implantou dashboards Power BI e geolocalização para monitoramento de obras públicas em tempo real",
+      ],
+    },
+    {
+      company: "Construtora Sempre Viva",
+      role: "Engenheiro Civil",
+      period: "01/2022 — 12/2022",
+      bullets: [
+        "Entregou 100% dos projetos no prazo executivo, com sistema de medição e controle orçamentário com rastreabilidade total",
+      ],
+    },
+  ],
+  systems: ["Excel Avançado (VBA)", "Power BI", "SAP", "AutoCAD"],
+};
+
 // ===== VARIATIONS =====
 export const variations: Record<string, { slug: string; label: string; data: CVData }> = {
   main: { slug: "main", label: "01 — 16/06/2026", data: cvMain },
@@ -647,4 +711,5 @@ export const variations: Record<string, { slug: string; label: string; data: CVD
   itinera: { slug: "itinera", label: "05 — ITINERA (Eng. Custos Rodoviárias)", data: cvItinera },
   egis: { slug: "egis", label: "06 — EGIS (Eng. Civil Orçamentista)", data: cvEgis },
   onepage: { slug: "onepage", label: "07 — One Page", data: cvOnePage },
+  duarte: { slug: "duarte", label: "08 — Método Duarte (1 pág.)", data: cvDuarte },
 };

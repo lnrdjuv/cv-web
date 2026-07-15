@@ -26,10 +26,12 @@ export default function CVTemplate({ data }: { data: CVData }) {
           </div>
         </div>
 
-        <div className="cv-section">
-          <h2 className="cv-section-title">Objetivo Profissional</h2>
-          <div className="cv-text"><p>{data.objective}</p></div>
-        </div>
+        {data.objective && (
+          <div className="cv-section">
+            <h2 className="cv-section-title">Objetivo Profissional</h2>
+            <div className="cv-text"><p>{data.objective}</p></div>
+          </div>
+        )}
 
         <div className="cv-section">
           <h2 className="cv-section-title">Resumo Profissional</h2>
